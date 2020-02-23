@@ -12,11 +12,7 @@ export default {
 
 <style>
   .wrapper {
-    background-color: white;
-    height: 300px;
-    width: 800px;
+    background-color: pink;
     margin: 0 auto;
-    z-index: 1;
-    border-radius: 5px;
   }
 </style>
