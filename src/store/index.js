@@ -3,10 +3,11 @@ import axios from '@/packages/axios'
 export default {
   state: () => ({
     isLoading: false,
-    products: {}
+    products: []
   }),
   getters: {
     isLoading: state => state.isLoading,
+    products: state => state.products,
     categories: state => {
       const categoriesList = []
       if (!state.isLoading) {

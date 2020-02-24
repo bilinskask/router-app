@@ -9,10 +9,13 @@
     <template v-if='categories && !isLoading'>
       <ul>
         <li v-for="category in categories" :key="category">
-          <BaseCard class="category--list">
+          <BaseCard
+          class="category--list"
+          @click.native="handleCatClick(category)"
+          >
           {{category}}
           </BaseCard>
-         </li>
+        </li>
       </ul>
     </template>
     </BaseWrapper>
@@ -21,6 +24,7 @@
 
 <script>
 // @ is an alias to /src
+// import { mapGetters, mapActions } from 'vuex'
 import { mapGetters } from 'vuex'
 import BaseWrapper from '@/components/BaseWrapper.vue'
 import BaseSpinner from '@/components/BaseSpinner.vue'
@@ -38,23 +42,37 @@ export default {
       isLoading: 'isLoading',
       categories: 'categories'
     })
+  },
+  methods: {
+    // ...mapActions({
+    //   routeToCategory: 'routeToCategory'
+    // }),
+    // async handleCatClick (category) {
+    //   await this.routeToCategory(category)
+    //   this.$router.push({ name: 'Category', params: { id: category } })
+    // }
+    handleCatClick (category) {
+      this.$router.push({ name: 'Category', params: { id: category } })
+    }
   }
 }
 </script>
 
-<style>
+<style scoped>
   .home {
     display: grid;
     background-color: pink;
   }
+
   ul {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 15px;
     list-style-type: none;
-    padding: 0px;
+    padding: 0;
   }
-  .category--list{
+
+  .category--list {
     min-width: 120px;
     min-height: 120px;
   }

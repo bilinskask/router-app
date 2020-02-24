@@ -43,7 +43,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  height:100vh;
+  height: 100vh;
 }
 
 #app {

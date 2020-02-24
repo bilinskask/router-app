@@ -11,7 +11,7 @@ export default {
 </script>
 
 <style>
-  .card {
+  /* .card {
     background-color: white;
     display: grid;
     grid-gap: 20px;
@@ -19,5 +19,5 @@ export default {
     align-content: center;
     margin: 0 auto;
     border-radius: 60px;
-  }
+  } */
 </style>
