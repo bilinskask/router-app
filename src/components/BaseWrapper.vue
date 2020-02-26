@@ -11,8 +11,5 @@ export default {
 </script>
 
 <style>
-  /* .wrapper {
-    background-color: pink;
-    margin: 0 auto;
-  } */
+
 </style>

@@ -44,6 +44,13 @@ body {
   padding: 0;
   box-sizing: border-box;
   height: 100vh;
+  background-color: pink;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 #app {

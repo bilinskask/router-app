@@ -3,11 +3,15 @@ import axios from '@/packages/axios'
 export default {
   state: () => ({
     isLoading: false,
-    products: []
+    products: [],
+    cartItems: [],
+    itemQuantity: []
   }),
   getters: {
     isLoading: state => state.isLoading,
     products: state => state.products,
+    cartItems: state => state.cartItems,
+    itemQuantity: state => state.itemQuantity,
     categories: state => {
       const categoriesList = []
       if (!state.isLoading) {
@@ -26,6 +30,12 @@ export default {
     },
     setAxiosProducts (state, payload) {
       state.products = payload
+    },
+    setCartItems (state, payload) {
+      state.cartItems = [...state.cartItems, payload]
+    },
+    setItemQuantity (state, payload) {
+      state.itemQuantity = [...state.itemQuantity, payload]
     }
   },
   actions: {
@@ -39,6 +49,13 @@ export default {
       } catch {
         commit('setLoadingState', true)
       }
+    },
+    addToCart ({ state, commit }, itemId) {
+      commit('setCartItems', itemId)
+      if (!state.itemQuantity.find(item => item === itemId)) {
+        commit('setItemQuantity', { [itemId]: 0 })
+      }
+      commit('setItemQuantity', { [itemId]: itemId.value++ })
     }
   },
   modules: {
